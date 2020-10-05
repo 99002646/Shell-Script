@@ -1,17 +1,12 @@
 all:all.out
 
-#CC=clang
-#CXX=clang
-#LD=g++
-#AS
-#CPP
-
-#CFLAGS=-g
-#LDFLAGS=-static
-#CXXFLAGS
-#ASFLAGS
-
 all.out:test.o sum.o sqr.o
-	gcc $^ -o $@
+	gcc test.o sum.o sqr.o -o all.out
+test.o:test.c fun.h
+	gcc test.c -c
+sum.o:sum.c fun.h
+	gcc sum.c -c
+sqr.o:sqr.c fun.h
+	gcc sqr.c -c
 clean:
 	rm -rf *.o all.out
